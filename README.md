@@ -1,4 +1,4 @@
-# gtd_agency
+# gtd.
 
 ## Project setup
 ```
@@ -11,10 +11,12 @@ yarn serve
 ```
 
 ### Compiles and minifies for production
+### NOTE: vue.config.js needs to updated to reflect where the files live.
+### Currently set to '/gtd' which is a subfolder on the server root
 ```
 yarn build
 ```
-
+### NOTE: No test have been setup
 ### Run your unit tests
 ```
 yarn test:unit

@@ -1,18 +1,44 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+
+    <span v-if="siteNotLoaded" >
+      <Preloader />
+    </span>
+
+    <span v-else>
+      <Header />
+      <LandingPage />
+      <Footer />
+    </span>
+
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+
+import Preloader from '@/components/Preloader.vue';
+import Header from '@/components/Header.vue';
+import LandingPage from '@/components/pages/LandingPage.vue';
+import Footer from '@/components/Footer.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    Preloader,
+    Header,
+    LandingPage,
+    Footer,
   },
 })
-export default class Home extends Vue {}
+
+// TODO:  Use state to track loaded items
+export default class Home extends Vue {
+  siteNotLoaded = true;
+
+  mounted() {
+    window.addEventListener('load', () => {
+      this.siteNotLoaded = false;
+    });
+  }
+}
 </script>
