@@ -84,8 +84,6 @@
 
     #site-footer {
       .cols {
-        color: #fff;
-        text-align: center;
         padding-left: 30px;
 
         .title {
