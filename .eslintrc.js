@@ -14,8 +14,8 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    // windows linebreaks when not in production environment
-    'linebreak-style': ['error', process.env.NODE_ENV === 'production' ? 'unix' : 'windows']
+    // windows linebreaks when not in production environment || TODO
+    // 'linebreak-style': ['error', process.env.NODE_ENV === 'production' ? 'unix' : 'windows']
   },
   overrides: [
     {
