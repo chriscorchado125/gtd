@@ -1,5 +1,5 @@
 <template>
-  <footer id="site-footer">
+  <footer id="site-footer" v-if="this.$store.state.isLoaded">
     <div class="col-wrapper">
 
       <div class="cols">
@@ -34,6 +34,17 @@
     </div>
   </footer>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Footer extends Vue {
+  mounted() {
+    this.$store.commit('setLoadedItems', 'footer');
+  }
+}
+</script>
 
 <style scoped lang="scss">
   #site-footer {

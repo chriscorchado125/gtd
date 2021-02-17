@@ -1,5 +1,5 @@
 <template>
-  <main class="container" id="content" role="main">
+  <main class="container" id="content" role="main" v-if="this.$store.state.isLoaded">
 
     <div class="hero-image center-text">
 
@@ -7,20 +7,24 @@
 
       <img src="./../../assets/images/homepage/hero/img_hero-min.jpg"
         alt="Image of woman walking to the right"
+        rel="prefetch"
       />
     </div>
 
     <div class="employee-images">
       <img src="./../../assets/images/people/employee/img_lisa-min.jpg"
         alt="Image of Lisa taking a picture"
+        rel="prefetch"
       />
 
       <img src="./../../assets/images/people/employee/img_danielle-min.jpg"
         alt="Image of Danielle smiling"
+        rel="prefetch"
       />
 
       <img src="./../../assets/images/people/employee/img_brian-min.jpg"
         alt="Image of Brian raising an eyebrow"
+        rel="prefetch"
       />
     </div>
 
@@ -39,7 +43,8 @@
 
       <div class="employee-image center-text">
         <img src="./../../assets/images/people/employee/img_lisa-min.jpg"
-          alt="Smaller image of Lisa taking a picture" />
+          alt="Smaller image of Lisa taking a picture" rel="prefetch" />
+
       </div>
       <div>
         <p class="employee-name bold">Lisa</p>
@@ -48,7 +53,7 @@
 
       <div class="employee-image center-text">
         <img src="./../../assets/images/people/employee/img_danielle-min.jpg"
-          alt="Image of Danielle smiling" />
+          alt="Image of Danielle smiling" rel="prefetch" />
       </div>
       <div>
         <p class="employee-name bold">Danielle</p>
@@ -60,6 +65,17 @@
 
   </main>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class LandingPage extends Vue {
+  mounted() {
+    this.$store.commit('setLoadedItems', 'landing');
+  }
+}
+</script>
 
 <style scoped lang="scss">
   .hero-image {

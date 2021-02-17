@@ -1,5 +1,5 @@
 <template>
-  <header id="site-header">
+  <header id="site-header" v-if="this.$store.state.isLoaded">
     <nav>
       <router-link to="/">
         <!--img src="./../assets/images/header/gtd_logo-min.png"
@@ -25,6 +25,17 @@
     </nav>
   </header>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Header extends Vue {
+  mounted() {
+    this.$store.commit('setLoadedItems', 'header');
+  }
+}
+</script>
 
 <style scoped lang="scss">
   #site-header {
